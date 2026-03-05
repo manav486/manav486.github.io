@@ -1,308 +1,129 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manav Custom Apparel | Yankee Style</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --black: #000000; --white: #ffffff; --grey: #f4f4f4; --gold: #d4af37; }
+        body { margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; box-shadow: none; }
+        
+        /* Promo Banner */
+        .promo-bar { background: #6a5acd; color: white; text-align: center; padding: 10px; font-size: 13px; font-weight: bold; }
 
-<title>Manav Custom Clothes</title>
+        /* Header & Search */
+        header { padding: 20px; border-bottom: 1px solid #eee; background: white; position: sticky; top: 0; z-index: 1000; }
+        .nav-top { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
+        .logo { font-size: 28px; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; }
+        .search-container { flex-grow: 1; margin: 0 40px; position: relative; }
+        .search-container input { width: 100%; padding: 10px 40px 10px 15px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
+        .search-container i { position: absolute; right: 15px; top: 12px; color: #888; }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        /* Menu */
+        nav { display: flex; justify-content: center; gap: 30px; padding: 15px 0; background: white; border-bottom: 1px solid #eee; }
+        nav a { text-decoration: none; color: black; font-weight: bold; font-size: 14px; text-transform: uppercase; }
 
-<style>
+        /* Product Sections */
+        .section-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .section-title { font-size: 24px; text-transform: uppercase; border-left: 5px solid var(--black); padding-left: 15px; margin-bottom: 30px; }
+        
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .product-card { border: 1px solid #eee; padding: 15px; transition: 0.3s; background: #fff; }
+        .product-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .product-card img { width: 100%; aspect-ratio: 1/1.2; object-fit: cover; border-radius: 4px; }
+        
+        /* Sizes & Order */
+        .size-label { font-size: 12px; color: #777; margin: 15px 0 5px; display: block; }
+        .size-box { display: flex; gap: 8px; margin-bottom: 15px; }
+        .size-option { border: 1px solid #ddd; padding: 5px 10px; font-size: 12px; border-radius: 4px; cursor: pointer; }
+        .size-option:hover { background: #000; color: #fff; }
 
-html{
-scroll-behavior:smooth;
-}
+        .buy-btn { background: black; color: white; width: 100%; padding: 15px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; }
 
-body{
-margin:0;
-font-family:Arial;
-background:#f5f5f5;
-}
+        /* Map Section */
+        .map-section { background: var(--grey); padding: 50px 20px; text-align: center; }
+        iframe { width: 100%; max-width: 1000px; height: 400px; border: 0; border-radius: 10px; margin-top: 20px; }
 
-header{
-background:black;
-color:white;
-padding:40px;
-text-align:center;
-}
-
-header h1{
-margin:0;
-font-size:36px;
-}
-
-nav{
-background:#333;
-position:sticky;
-top:0;
-padding:12px;
-text-align:center;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin:15px;
-font-size:18px;
-}
-
-nav a:hover{
-color:gold;
-}
-
-.hero{
-background:url("https://picsum.photos/1200/500");
-color:white;
-padding:120px 20px;
-text-align:center;
-}
-
-.hero h2{
-font-size:40px;
-}
-
-section{
-padding:50px 20px;
-text-align:center;
-}
-
-.gallery img{
-width:250px;
-margin:10px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
-}
-
-.services{
-font-size:18px;
-line-height:2;
-}
-
-.review{
-background:white;
-padding:20px;
-margin:10px auto;
-max-width:400px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-form input, textarea{
-width:250px;
-padding:10px;
-margin:10px;
-border-radius:5px;
-border:1px solid #ccc;
-}
-
-button{
-background:black;
-color:white;
-padding:12px 25px;
-border:none;
-border-radius:5px;
-font-size:16px;
-}
-
-button:hover{
-background:#444;
-}
-
-.contact p{
-font-size:18px;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:16px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
-}
-
-footer{
-background:black;
-color:white;
-padding:20px;
-text-align:center;
-margin-top:40px;
-}
-
-</style>
-
+        @media (max-width: 768px) {
+            .nav-top { flex-direction: column; gap: 15px; }
+            .search-container { margin: 0; width: 100%; }
+            .product-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
 </head>
-
 <body>
 
+<div class="promo-bar">FREE SHIPPING ON ALL ORDERS OVER ₹999</div>
+
 <header>
-
-<h1>Manav Custom Clothes</h1>
-<p>Designer & Customised Clothing</p>
-
+    <div class="nav-top">
+        <div class="logo">MANAV</div>
+        <div class="search-container">
+            <input type="text" placeholder="Search for hoodies, suits, lowers...">
+            <i class="fa fa-search"></i>
+        </div>
+        <div class="icons"><i class="fa fa-shopping-bag"></i></div>
+    </div>
 </header>
 
 <nav>
-
-<a href="#home">Home</a>
-<a href="#gallery">Gallery</a>
-<a href="#services">Services</a>
-<a href="#order">Order</a>
-<a href="#reviews">Reviews</a>
-<a href="#contact">Contact</a>
-
+    <a href="#suits">Suits</a>
+    <a href="#tshirts">T-Shirts</a>
+    <a href="#lowers">Lowers</a>
+    <a href="#map">Find Us</a>
 </nav>
 
-<div class="hero" id="home">
-
-<h2>Beautiful Custom Clothes</h2>
-<p>Perfect fitting • Stylish design • Handmade quality</p>
-
+<div class="section-container" id="suits">
+    <h2 class="section-title">Customized Suits</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="IMG_5843.jpeg">
+            <h4>Design #5843</h4>
+            <span class="size-label">Select Size</span>
+            <div class="size-box"><div class="size-option">M</div><div class="size-option">L</div><div class="size-option">XL</div></div>
+            <button class="buy-btn" onclick="location.href='https://wa.me/910000000000?text=I want to order Suit Design 5843'">Place Order</button>
+        </div>
+        <div class="product-card">
+            <img src="IMG_5844.jpeg">
+            <h4>Design #5844</h4>
+            <span class="size-label">Select Size</span>
+            <div class="size-box"><div class="size-option">M</div><div class="size-option">L</div></div>
+            <button class="buy-btn" onclick="location.href='https://wa.me/910000000000?text=I want to order Suit Design 5844'">Place Order</button>
+        </div>
+        <div class="product-card">
+            <img src="IMG_5851.jpeg">
+            <h4>Design #5851</h4>
+            <button class="buy-btn" onclick="location.href='https://wa.me/910000000000?text=I want to order Suit Design 5851'">Place Order</button>
+        </div>
+    </div>
 </div>
 
-<section id="gallery">
-
-<h2>Our Designs</h2>
-
-<style>
-    /* This creates the Side-by-Side Layout */
-    .main-store-container {
-        display: flex;
-        flex-direction: row; /* Side by side */
-        gap: 20px;
-        padding: 20px;
-        max-width: 1200px;
-        margin: auto;
-    }
-
-    /* Left Sidebar Styling */
-    .sidebar {
-        width: 25%; /* Sidebar takes 25% width */
-        background: #f4f4f4;
-        padding: 20px;
-        border-radius: 10px;
-        height: fit-content;
-    }
-
-    .sidebar h3 {
-        font-family: Arial, sans-serif;
-        font-size: 18px;
-        border-bottom: 2px solid #000;
-        padding-bottom: 10px;
-    }
-
-    .category-link {
-        display: block;
-        padding: 10px 0;
-        color: #333;
-        text-decoration: none;
-        font-weight: bold;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .category-link:hover {
-        color: #d4af37; /* Gold color on hover */
-    }
-
-    /* Right Side Product Grid */
-    .product-area {
-        width: 75%; /* Products take 75% width */
-    }
-
-    .suit-shop-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
-
-    /* Mobile Responsive: Stack them on top of each other if screen is small */
-    @media (max-width: 768px) {
-        .main-store-container {
-            flex-direction: column;
-        }
-        .sidebar, .product-area {
-            width: 100%;
-        }
-    }
-</style>
-    
-
-<section id="services">
-
-<h2>Our Services</h2>
-
-<div class="services">
-
-✔ Custom Dresses<br>
-✔ Ladies Suits<br>
-✔ Wedding Clothes<br>
-✔ Party Wear<br>
-✔ Designer Stitching<br>
-✔ Alterations
-
+<div class="section-container" id="lowers">
+    <h2 class="section-title">Comfort Lowers</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="IMG_5855.jpeg">
+            <h4>Baggy Lower #1</h4>
+            <button class="buy-btn" onclick="location.href='https://wa.me/910000000000?text=Order Lower 5855'">Place Order</button>
+        </div>
+        <div class="product-card">
+            <img src="IMG_5858.jpeg">
+            <h4>Classic Jogger</h4>
+            <button class="buy-btn" onclick="location.href='https://wa.me/910000000000?text=Order Lower 5858'">Place Order</button>
+        </div>
+    </div>
 </div>
 
-</section>
-
-<section id="order">
-
-<h2>Place Your Order</h2>
-
-<form>
-
-<input type="text" placeholder="Your Name"><br>
-
-<input type="text" placeholder="Phone Number"><br>
-
-<input type="text" placeholder="Clothing Type"><br>
-
-<textarea placeholder="Describe your order"></textarea><br>
-
-<button>Submit Order</button>
-
-</form>
-
-</section>
-
-<section id="reviews">
-
-<h2>Customer Reviews</h2>
-
-<div class="review">
-⭐⭐⭐⭐⭐
-<p>Perfect fitting and beautiful design!</p>
+<div class="map-section" id="map">
+    <h2>Visit Our Shop</h2>
+    <p>Live on Google Maps</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.4!2d75.8!3d30.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDU0JzAwLjAiTiA3NcKwNDgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"></iframe>
 </div>
 
-<div class="review">
-⭐⭐⭐⭐⭐
-<p>Very professional work. Highly recommended.</p>
-</div>
-
-</section>
-
-<section id="contact" class="contact">
-
-<h2>Contact</h2>
-
-<p>📞 Phone: +91 8837723273</p>
-
-<p>📍 Sangrur,Punjab, India</p>
-
-<p>📸 Instagram: kauramnz_boutique</p>
-
-</section>
-
-<a class="whatsapp" href="https://wa.me/918837723273">💬</a>
-
-<footer>
-
-<p>© 2026 Manav Custom Clothes</p>
-
+<footer style="text-align:center; padding: 40px; background:#000; color:#fff;">
+    <p>&copy; 2026 MANAV CUSTOM APPAREL. All Rights Reserved.</p>
 </footer>
 
 </body>
-
 </html>
