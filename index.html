@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MANAV | Premium Custom Suit Prints</title>
+    <title>MANAV | Premium Custom Apparel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --black: #1a1a1a; --white: #ffffff; --grey: #f9f9f9; }
+        :root { --black: #1a1a1a; --white: #ffffff; --grey: #f9f9f9; --purple: #6a5acd; }
         body { margin: 0; font-family: 'Inter', sans-serif; color: var(--black); line-height: 1.6; }
 
-        /* PROMO BAR */
-        .promo { background: #000; color: white; text-align: center; padding: 12px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+        .promo { background: var(--purple); color: white; text-align: center; padding: 12px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
 
-        /* HEADER & SEARCH */
         header { padding: 15px 5%; border-bottom: 1px solid #eee; background: white; position: sticky; top: 0; z-index: 1000; }
         .nav-main { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: auto; }
         .logo { font-size: 26px; font-weight: 900; letter-spacing: 2px; text-decoration: none; color: black; }
@@ -21,36 +19,30 @@
         .search-container input { width: 100%; padding: 12px 45px 12px 20px; border: none; border-radius: 4px; background: var(--grey); outline: none; }
         .search-container i { position: absolute; right: 15px; top: 14px; color: #555; }
 
-        /* MENU NAVIGATION */
         nav { display: flex; justify-content: center; gap: 40px; padding: 15px; background: white; border-bottom: 1px solid #eee; }
         nav a { text-decoration: none; color: black; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* SHOPPING SECTIONS */
         .shop-container { max-width: 1400px; margin: 50px auto; padding: 0 20px; }
         .header-box { display: flex; align-items: center; margin-bottom: 40px; }
         .header-box h2 { font-size: 24px; text-transform: uppercase; margin: 0; }
         .header-box .line { flex-grow: 1; height: 2px; background: #eee; margin-left: 20px; }
         
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
         .card { background: white; border: 1px solid #f0f0f0; padding: 10px; transition: 0.3s ease; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .card img { width: 100%; aspect-ratio: 1/1.2; object-fit: cover; }
+        .card img { width: 100%; aspect-ratio: 1/1.2; object-fit: cover; border-radius: 4px; }
         
-        /* SIZE & SELECTION */
         .info { padding: 15px 5px; }
         .info h4 { margin: 0 0 10px; font-size: 16px; font-weight: 600; }
-        .selection-label { font-size: 11px; color: #888; text-transform: uppercase; margin-bottom: 8px; display: block; }
+        .label { font-size: 11px; color: #888; text-transform: uppercase; margin-bottom: 8px; display: block; }
         .bubble-box { display: flex; gap: 8px; margin-bottom: 15px; }
-        .bubble { border: 1px solid #ddd; padding: 5px 12px; font-size: 12px; border-radius: 2px; }
-        .bubble-color { width: 22px; height: 22px; border-radius: 50%; border: 1px solid #ddd; }
+        .bubble { border: 1px solid #ddd; padding: 5px 12px; font-size: 11px; border-radius: 20px; cursor: pointer; }
+        .bubble:hover { background: #000; color: #fff; }
 
-        /* PLACE ORDER BUTTON */
         .btn-order { background: black; color: white; border: none; width: 100%; padding: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; }
 
-        /* EMPTY SECTION PLACEHOLDER */
-        .coming-soon { text-align: center; padding: 60px; border: 2px dashed #eee; color: #aaa; text-transform: uppercase; letter-spacing: 2px; }
+        .coming-soon-box { text-align: center; padding: 40px; border: 2px dashed #eee; color: #888; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-top: 20px; }
 
-        /* MAP */
         .map-section { background: var(--grey); padding: 80px 20px; text-align: center; }
         .map-container iframe { width: 100%; max-width: 1100px; height: 450px; border: 0; border-radius: 4px; }
 
@@ -63,13 +55,13 @@
 </head>
 <body>
 
-    <div class="promo">FREE SHIPPING ON ALL ORDERS IN SANGRUR | NEW USER 10% OFF</div>
+    <div class="promo">FREE SHIPPING IN SANGRUR | NEW USER & ENJOY 10% OFF</div>
 
     <header>
         <div class="nav-main">
             <a href="#" class="logo">MANAV</a>
             <div class="search-container">
-                <input type="text" placeholder="Search suit prints...">
+                <input type="text" placeholder="Search for T-shirts, Suits...">
                 <i class="fa fa-search"></i>
             </div>
             <div style="font-size: 20px;"><i class="fa fa-shopping-bag"></i></div>
@@ -77,41 +69,79 @@
     </header>
 
     <nav>
-        <a href="#suits">Suit Prints</a>
         <a href="#tshirts">T-Shirts</a>
+        <a href="#suits">Suit Prints</a>
         <a href="#lowers">Lowers</a>
-        <a href="#map">Sangrur Store</a>
+        <a href="#map">Our Store</a>
     </nav>
+
+    <section class="shop-container" id="tshirts">
+        <div class="header-box"><h2>T-Shirts Collection</h2><div class="line"></div></div>
+        <div class="product-grid">
+            <div class="card">
+                <img src="IMG_5871.png">
+                <div class="info">
+                    <h4>Punjab Warrior Tee</h4>
+                    <span class="label">Select Size</span>
+                    <div class="bubble-box"><div class="bubble">M</div><div class="bubble">L</div><div class="bubble">XL</div></div>
+                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order T-Shirt 5871'">Place Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="IMG_5872.png">
+                <div class="info">
+                    <h4>Heritage Edition</h4>
+                    <span class="label">Select Size</span>
+                    <div class="bubble-box"><div class="bubble">M</div><div class="bubble">L</div><div class="bubble">XL</div></div>
+                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order T-Shirt 5872'">Place Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="IMG_5873.jpeg">
+                <div class="info">
+                    <h4>Custom Sword Print</h4>
+                    <span class="label">Select Size</span>
+                    <div class="bubble-box"><div class="bubble">M</div><div class="bubble">L</div><div class="bubble">XL</div></div>
+                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order T-Shirt 5873'">Place Order</button>
+                </div>
+            </div>
+        </div>
+        <div class="coming-soon-box">More T-Shirt Collection Coming Soon</div>
+    </section>
 
     <section class="shop-container" id="suits">
         <div class="header-box"><h2>Custom Suit Prints</h2><div class="line"></div></div>
         <div class="product-grid">
-            <div class="card"><img src="IMG_5843.jpeg"><div class="info"><h4>Print #5843</h4><span class="selection-label">Suit Color</span><div class="bubble-box"><div class="bubble-color" style="background:white"></div><div class="bubble-color" style="background:black"></div></div><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5843'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5844.jpeg"><div class="info"><h4>Print #5844</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5844'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5851.jpeg"><div class="info"><h4>Print #5851</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5851'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5852.jpeg"><div class="info"><h4>Print #5852</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5852'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5853.jpeg"><div class="info"><h4>Print #5853</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5853'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5855.jpeg"><div class="info"><h4>Print #5855</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5855'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5856.jpeg"><div class="info"><h4>Print #5856</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5856'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5857.jpeg"><div class="info"><h4>Print #5857</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5857'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5858.jpeg"><div class="info"><h4>Print #5858</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5858'">Place Order</button></div></div>
+            <div class="card">
+                <img src="IMG_5843.jpeg">
+                <div class="info">
+                    <h4>Suit Print #5843</h4>
+                    <span class="label">Select Size</span>
+                    <div class="bubble-box"><div class="bubble">M</div><div class="bubble">L</div><div class="bubble">XL</div></div>
+                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5843'">Place Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="IMG_5844.jpeg">
+                <div class="info">
+                    <h4>Suit Print #5844</h4>
+                    <span class="label">Select Size</span>
+                    <div class="bubble-box"><div class="bubble">M</div><div class="bubble">L</div><div class="bubble">XL</div></div>
+                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5844'">Place Order</button>
+                </div>
+            </div>
         </div>
-    </section>
-
-    <section class="shop-container" id="tshirts">
-        <div class="header-box"><h2>T-Shirts</h2><div class="line"></div></div>
-        <div class="coming-soon">New T-Shirt Collection Coming Soon</div>
     </section>
 
     <section class="shop-container" id="lowers">
         <div class="header-box"><h2>Lowers</h2><div class="line"></div></div>
-        <div class="coming-soon">New Lowers Collection Coming Soon</div>
+        <div class="coming-soon-box">New Lower Collection Coming Soon</div>
     </section>
 
     <section class="map-section" id="map">
-        <h2>Our Sangrur Location</h2>
+        <h2>Visit Our Sangrur Store</h2>
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55034.43673322197!2d75.81155913490723!3d30.239304918731057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3910f8981977713d%3A0xc3f98233ef529e79!2sSangrur%2C%20Punjab!5e0!3m2!1sen!2sin!4v1700000000000"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54943.43572879685!2d75.8143492576104!3d30.228941050805363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391054379a2908f5%3A0x6e9a656041f02195!2sSangrur%2C%20Punjab!5e0!3m2!1sen!2sin!4v1709680000000!5m2!1sen!2sin"></iframe>
         </div>
     </section>
 
@@ -122,5 +152,3 @@
 
 </body>
 </html>
-
-
