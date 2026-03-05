@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MANAV | Premium Custom Apparel</title>
+    <title>MANAV | Premium Custom Suit Prints</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --accent: #6a5acd; --black: #1a1a1a; --white: #ffffff; --grey: #f9f9f9; }
-        body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--black); line-height: 1.6; }
+        :root { --black: #1a1a1a; --white: #ffffff; --grey: #f9f9f9; }
+        body { margin: 0; font-family: 'Inter', sans-serif; color: var(--black); line-height: 1.6; }
 
         /* PROMO BAR */
-        .promo { background: var(--black); color: white; text-align: center; padding: 12px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+        .promo { background: #000; color: white; text-align: center; padding: 12px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
 
         /* HEADER & SEARCH */
         header { padding: 15px 5%; border-bottom: 1px solid #eee; background: white; position: sticky; top: 0; z-index: 1000; }
@@ -18,13 +18,12 @@
         .logo { font-size: 26px; font-weight: 900; letter-spacing: 2px; text-decoration: none; color: black; }
         
         .search-container { flex-grow: 1; margin: 0 40px; position: relative; max-width: 600px; }
-        .search-container input { width: 100%; padding: 12px 45px 12px 20px; border: 1px solid #ddd; border-radius: 4px; background: var(--grey); outline: none; border: none; }
+        .search-container input { width: 100%; padding: 12px 45px 12px 20px; border: none; border-radius: 4px; background: var(--grey); outline: none; }
         .search-container i { position: absolute; right: 15px; top: 14px; color: #555; }
 
         /* MENU NAVIGATION */
         nav { display: flex; justify-content: center; gap: 40px; padding: 15px; background: white; border-bottom: 1px solid #eee; }
         nav a { text-decoration: none; color: black; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
-        nav a:hover { color: #666; }
 
         /* SHOPPING SECTIONS */
         .shop-container { max-width: 1400px; margin: 50px auto; padding: 0 20px; }
@@ -33,45 +32,44 @@
         .header-box .line { flex-grow: 1; height: 2px; background: #eee; margin-left: 20px; }
         
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; border: 1px solid #f0f0f0; padding: 10px; transition: 0.3s ease; position: relative; }
+        .card { background: white; border: 1px solid #f0f0f0; padding: 10px; transition: 0.3s ease; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
         .card img { width: 100%; aspect-ratio: 1/1.2; object-fit: cover; }
         
-        /* PRICE & SIZE */
+        /* SIZE & SELECTION */
         .info { padding: 15px 5px; }
         .info h4 { margin: 0 0 10px; font-size: 16px; font-weight: 600; }
-        .size-box { display: flex; gap: 10px; margin-bottom: 20px; }
-        .size-btn { border: 1px solid #ddd; padding: 5px 12px; font-size: 12px; font-weight: bold; cursor: pointer; border-radius: 2px; }
-        .size-btn:hover { background: #000; color: #fff; border-color: #000; }
+        .selection-label { font-size: 11px; color: #888; text-transform: uppercase; margin-bottom: 8px; display: block; }
+        .bubble-box { display: flex; gap: 8px; margin-bottom: 15px; }
+        .bubble { border: 1px solid #ddd; padding: 5px 12px; font-size: 12px; border-radius: 2px; }
+        .bubble-color { width: 22px; height: 22px; border-radius: 50%; border: 1px solid #ddd; }
 
-        /* ACTION BUTTON */
-        .btn-order { background: black; color: white; border: none; width: 100%; padding: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; transition: 0.3s; }
-        .btn-order:hover { background: #333; }
+        /* PLACE ORDER BUTTON */
+        .btn-order { background: black; color: white; border: none; width: 100%; padding: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; }
+
+        /* EMPTY SECTION PLACEHOLDER */
+        .coming-soon { text-align: center; padding: 60px; border: 2px dashed #eee; color: #aaa; text-transform: uppercase; letter-spacing: 2px; }
 
         /* MAP */
         .map-section { background: var(--grey); padding: 80px 20px; text-align: center; }
-        .map-container iframe { width: 100%; max-width: 1100px; height: 450px; border: 0; border-radius: 4px; filter: grayscale(100%); transition: 0.5s; }
-        .map-container iframe:hover { filter: grayscale(0%); }
+        .map-container iframe { width: 100%; max-width: 1100px; height: 450px; border: 0; border-radius: 4px; }
 
-        /* MOBILE */
         @media (max-width: 768px) {
             .nav-main { flex-direction: column; gap: 20px; }
             .search-container { width: 100%; margin: 0; }
-            nav { gap: 15px; overflow-x: auto; justify-content: flex-start; }
-            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .btn-order { padding: 12px; font-size: 10px; }
+            .product-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="promo">FREE SHIPPING ON ALL ORDERS | NEW USER 10% OFF</div>
+    <div class="promo">FREE SHIPPING ON ALL ORDERS IN SANGRUR | NEW USER 10% OFF</div>
 
     <header>
         <div class="nav-main">
             <a href="#" class="logo">MANAV</a>
             <div class="search-container">
-                <input type="text" placeholder="Search for T-shirts, Suits, Joggers...">
+                <input type="text" placeholder="Search suit prints...">
                 <i class="fa fa-search"></i>
             </div>
             <div style="font-size: 20px;"><i class="fa fa-shopping-bag"></i></div>
@@ -79,82 +77,50 @@
     </header>
 
     <nav>
-        <a href="#suits">Suits</a>
+        <a href="#suits">Suit Prints</a>
         <a href="#tshirts">T-Shirts</a>
         <a href="#lowers">Lowers</a>
-        <a href="#map">Our Store</a>
+        <a href="#map">Sangrur Store</a>
     </nav>
 
     <section class="shop-container" id="suits">
-        <div class="header-box">
-            <h2>Custom Suits</h2>
-            <div class="line"></div>
-        </div>
+        <div class="header-box"><h2>Custom Suit Prints</h2><div class="line"></div></div>
         <div class="product-grid">
-            <div class="card">
-                <img src="IMG_5843.jpeg">
-                <div class="info">
-                    <h4>Custom Suit Print #01</h4>
-                    <div class="size-box">
-                        <div class="size-btn">S</div><div class="size-btn">M</div><div class="size-btn">L</div><div class="size-btn">XL</div>
-                    </div>
-                    <button class="btn-order" onclick="location.href='https://wa.me/918837723272?text=I want to order Custom Suit Design 5843'">Place Order</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="IMG_5844.jpeg">
-                <div class="info">
-                    <h4>Custom Suit Print #02</h4>
-                    <div class="size-box">
-                        <div class="size-btn">M</div><div class="size-btn">L</div><div class="size-btn">XL</div>
-                    </div>
-                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=I want to order Custom Suit Design 5844'">Place Order</button>
-                </div>
-            </div>
+            <div class="card"><img src="IMG_5843.jpeg"><div class="info"><h4>Print #5843</h4><span class="selection-label">Suit Color</span><div class="bubble-box"><div class="bubble-color" style="background:white"></div><div class="bubble-color" style="background:black"></div></div><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5843'">Place Order</button></div></div>
+            <div class="card"><img src="IMG_5844.jpeg"><div class="info"><h4>Print #5844</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5844'">Place Order</button></div></div>
+            <div class="card"><img src="IMG_5851.jpeg"><div class="info"><h4>Print #5851</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5851'">Place Order</button></div></div>
+            <div class="card"><img src="IMG_5852.jpeg"><div class="info"><h4>Print #5852</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5852'">Place Order</button></div></div>
+            <div class="card"><img src="IMG_5853.jpeg"><div class="info"><h4>Print #5853</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5853'">Place Order</button></div></div>
+            <div class="card"><img src="IMG_5855.jpeg"><div class="info"><h4>Print #5855</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5855'">Place Order</button></div></div>
+            <div class="card"><img src="IMG_5856.jpeg"><div class="info"><h4>Print #5856</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5856'">Place Order</button></div></div>
+            <div class="card"><img src="IMG_5857.jpeg"><div class="info"><h4>Print #5857</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5857'">Place Order</button></div></div>
+            <div class="card"><img src="IMG_5858.jpeg"><div class="info"><h4>Print #5858</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5858'">Place Order</button></div></div>
         </div>
+    </section>
+
+    <section class="shop-container" id="tshirts">
+        <div class="header-box"><h2>T-Shirts</h2><div class="line"></div></div>
+        <div class="coming-soon">New T-Shirt Collection Coming Soon</div>
     </section>
 
     <section class="shop-container" id="lowers">
-        <div class="header-box">
-            <h2>Comfort Lowers</h2>
-            <div class="line"></div>
-        </div>
-        <div class="product-grid">
-            <div class="card">
-                <img src="IMG_5855.jpeg">
-                <div class="info">
-                    <h4>Premium Baggy Lower</h4>
-                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=I want to order Lower 5855'">Place Order</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="IMG_5858.jpeg">
-                <div class="info">
-                    <h4>Signature Joggers</h4>
-                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=I want to order Lower 5858'">Place Order</button>
-                </div>
-            </div>
-        </div>
+        <div class="header-box"><h2>Lowers</h2><div class="line"></div></div>
+        <div class="coming-soon">New Lowers Collection Coming Soon</div>
     </section>
 
     <section class="map-section" id="map">
-        <h2>Our Workshop Location</h2>
-        <p style="margin-bottom: 30px;">Live on Google Maps - Visit us for custom fittings</p>
+        <h2>Our Sangrur Location</h2>
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=PLACEHOLDER"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55034.43673322197!2d75.81155913490723!3d30.239304918731057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3910f8981977713d%3A0xc3f98233ef529e79!2sSangrur%2C%20Punjab!5e0!3m2!1sen!2sin!4v1700000000000"></iframe>
         </div>
     </section>
 
-    <footer style="background: black; color: white; padding: 80px 20px; text-align: center;">
+    <footer style="background: black; color: white; padding: 60px 20px; text-align: center;">
         <h1 style="letter-spacing: 5px; font-weight: 900;">MANAV</h1>
-        <p style="opacity: 0.6; font-size: 14px;">Sangrur, Punjab | Made On Demand With Heart ❤️</p>
-        <div style="margin-top: 30px; font-size: 20px; display: flex; justify-content: center; gap: 20px;">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-whatsapp"></i>
-        </div>
+        <p>Sangrur, Punjab | Made With Heart ❤️</p>
     </footer>
 
 </body>
 </html>
+
 
