@@ -167,7 +167,96 @@ margin-top:40px;
 
 <h2>Our Designs</h2>
 
-<div class="gallery">
+<style>
+    /* This creates the Side-by-Side Layout */
+    .main-store-container {
+        display: flex;
+        flex-direction: row; /* Side by side */
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    /* Left Sidebar Styling */
+    .sidebar {
+        width: 25%; /* Sidebar takes 25% width */
+        background: #f4f4f4;
+        padding: 20px;
+        border-radius: 10px;
+        height: fit-content;
+    }
+
+    .sidebar h3 {
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        border-bottom: 2px solid #000;
+        padding-bottom: 10px;
+    }
+
+    .category-link {
+        display: block;
+        padding: 10px 0;
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .category-link:hover {
+        color: #d4af37; /* Gold color on hover */
+    }
+
+    /* Right Side Product Grid */
+    .product-area {
+        width: 75%; /* Products take 75% width */
+    }
+
+    .suit-shop-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    /* Mobile Responsive: Stack them on top of each other if screen is small */
+    @media (max-width: 768px) {
+        .main-store-container {
+            flex-direction: column;
+        }
+        .sidebar, .product-area {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="main-store-container">
+    
+    <aside class="sidebar">
+        <h3>Collections</h3>
+        <a href="#gallery" class="category-link">Standard Suits</a>
+        <a href="#custom-collection" class="category-link">Customized Collection</a>
+        <a href="#" class="category-link">Premium Plushies</a>
+        <a href="#" class="category-link">New Arrivals</a>
+    </aside>
+
+    <main class="product-area">
+        <div class="suit-shop-grid">
+            <div class="suit-card">
+                <img src="IMG_5843.jpeg" style="width:100%; border-radius:8px;">
+                <div class="color-section">
+                    <span class="color-title">Select Color</span>
+                    <div class="swatch-box">
+                        <div class="swatch-circle" style="background:white;"></div>
+                        <div class="swatch-circle" style="background:black;"></div>
+                    </div>
+                </div>
+                <button class="buy-btn" onclick="location.href='https://wa.me/910000000000?text=Order Design 5843'">BUY NOW</button>
+            </div>
+
+            </div>
+    </main>
+</div>
+
 
 <div class="gallery">
     <button class="gallery-item-btn" onclick="alert('Item 1 clicked! WhatsApp details to come...')">
