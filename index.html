@@ -3,127 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manav Custom Apparel | Yankee Style</title>
+    <title>MANAV | Premium Custom Apparel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --black: #000000; --white: #ffffff; --grey: #f4f4f4; --gold: #d4af37; }
-        body { margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; box-shadow: none; }
+        :root { --accent: #6a5acd; --black: #1a1a1a; --white: #ffffff; --grey: #f9f9f9; }
+        body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--black); line-height: 1.6; }
+
+        /* PROMO BAR */
+        .promo { background: var(--black); color: white; text-align: center; padding: 12px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+
+        /* HEADER & SEARCH */
+        header { padding: 15px 5%; border-bottom: 1px solid #eee; background: white; position: sticky; top: 0; z-index: 1000; }
+        .nav-main { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: auto; }
+        .logo { font-size: 26px; font-weight: 900; letter-spacing: 2px; text-decoration: none; color: black; }
         
-        /* Promo Banner */
-        .promo-bar { background: #6a5acd; color: white; text-align: center; padding: 10px; font-size: 13px; font-weight: bold; }
+        .search-container { flex-grow: 1; margin: 0 40px; position: relative; max-width: 600px; }
+        .search-container input { width: 100%; padding: 12px 45px 12px 20px; border: 1px solid #ddd; border-radius: 4px; background: var(--grey); outline: none; border: none; }
+        .search-container i { position: absolute; right: 15px; top: 14px; color: #555; }
 
-        /* Header & Search */
-        header { padding: 20px; border-bottom: 1px solid #eee; background: white; position: sticky; top: 0; z-index: 1000; }
-        .nav-top { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
-        .logo { font-size: 28px; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; }
-        .search-container { flex-grow: 1; margin: 0 40px; position: relative; }
-        .search-container input { width: 100%; padding: 10px 40px 10px 15px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
-        .search-container i { position: absolute; right: 15px; top: 12px; color: #888; }
+        /* MENU NAVIGATION */
+        nav { display: flex; justify-content: center; gap: 40px; padding: 15px; background: white; border-bottom: 1px solid #eee; }
+        nav a { text-decoration: none; color: black; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+        nav a:hover { color: #666; }
 
-        /* Menu */
-        nav { display: flex; justify-content: center; gap: 30px; padding: 15px 0; background: white; border-bottom: 1px solid #eee; }
-        nav a { text-decoration: none; color: black; font-weight: bold; font-size: 14px; text-transform: uppercase; }
-
-        /* Product Sections */
-        .section-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .section-title { font-size: 24px; text-transform: uppercase; border-left: 5px solid var(--black); padding-left: 15px; margin-bottom: 30px; }
+        /* SHOPPING SECTIONS */
+        .shop-container { max-width: 1400px; margin: 50px auto; padding: 0 20px; }
+        .header-box { display: flex; align-items: center; margin-bottom: 40px; }
+        .header-box h2 { font-size: 24px; text-transform: uppercase; margin: 0; }
+        .header-box .line { flex-grow: 1; height: 2px; background: #eee; margin-left: 20px; }
         
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .product-card { border: 1px solid #eee; padding: 15px; transition: 0.3s; background: #fff; }
-        .product-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .product-card img { width: 100%; aspect-ratio: 1/1.2; object-fit: cover; border-radius: 4px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; border: 1px solid #f0f0f0; padding: 10px; transition: 0.3s ease; position: relative; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .card img { width: 100%; aspect-ratio: 1/1.2; object-fit: cover; }
         
-        /* Sizes & Order */
-        .size-label { font-size: 12px; color: #777; margin: 15px 0 5px; display: block; }
-        .size-box { display: flex; gap: 8px; margin-bottom: 15px; }
-        .size-option { border: 1px solid #ddd; padding: 5px 10px; font-size: 12px; border-radius: 4px; cursor: pointer; }
-        .size-option:hover { background: #000; color: #fff; }
+        /* PRICE & SIZE */
+        .info { padding: 15px 5px; }
+        .info h4 { margin: 0 0 10px; font-size: 16px; font-weight: 600; }
+        .size-box { display: flex; gap: 10px; margin-bottom: 20px; }
+        .size-btn { border: 1px solid #ddd; padding: 5px 12px; font-size: 12px; font-weight: bold; cursor: pointer; border-radius: 2px; }
+        .size-btn:hover { background: #000; color: #fff; border-color: #000; }
 
-        .buy-btn { background: black; color: white; width: 100%; padding: 15px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        /* ACTION BUTTON */
+        .btn-order { background: black; color: white; border: none; width: 100%; padding: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; transition: 0.3s; }
+        .btn-order:hover { background: #333; }
 
-        /* Map Section */
-        .map-section { background: var(--grey); padding: 50px 20px; text-align: center; }
-        iframe { width: 100%; max-width: 1000px; height: 400px; border: 0; border-radius: 10px; margin-top: 20px; }
+        /* MAP */
+        .map-section { background: var(--grey); padding: 80px 20px; text-align: center; }
+        .map-container iframe { width: 100%; max-width: 1100px; height: 450px; border: 0; border-radius: 4px; filter: grayscale(100%); transition: 0.5s; }
+        .map-container iframe:hover { filter: grayscale(0%); }
 
+        /* MOBILE */
         @media (max-width: 768px) {
-            .nav-top { flex-direction: column; gap: 15px; }
-            .search-container { margin: 0; width: 100%; }
-            .product-grid { grid-template-columns: 1fr 1fr; }
+            .nav-main { flex-direction: column; gap: 20px; }
+            .search-container { width: 100%; margin: 0; }
+            nav { gap: 15px; overflow-x: auto; justify-content: flex-start; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .btn-order { padding: 12px; font-size: 10px; }
         }
     </style>
 </head>
 <body>
 
-<div class="promo-bar">FREE SHIPPING ON ALL ORDERS OVER ₹999</div>
+    <div class="promo">FREE SHIPPING ON ALL ORDERS | NEW USER 10% OFF</div>
 
-<header>
-    <div class="nav-top">
-        <div class="logo">MANAV</div>
-        <div class="search-container">
-            <input type="text" placeholder="Search for hoodies, suits, lowers...">
-            <i class="fa fa-search"></i>
+    <header>
+        <div class="nav-main">
+            <a href="#" class="logo">MANAV</a>
+            <div class="search-container">
+                <input type="text" placeholder="Search for T-shirts, Suits, Joggers...">
+                <i class="fa fa-search"></i>
+            </div>
+            <div style="font-size: 20px;"><i class="fa fa-shopping-bag"></i></div>
         </div>
-        <div class="icons"><i class="fa fa-shopping-bag"></i></div>
-    </div>
-</header>
+    </header>
 
-<nav>
-    <a href="#suits">Suits</a>
-    <a href="#tshirts">T-Shirts</a>
-    <a href="#lowers">Lowers</a>
-    <a href="#map">Find Us</a>
-</nav>
+    <nav>
+        <a href="#suits">Suits</a>
+        <a href="#tshirts">T-Shirts</a>
+        <a href="#lowers">Lowers</a>
+        <a href="#map">Our Store</a>
+    </nav>
 
-<div class="section-container" id="suits">
-    <h2 class="section-title">Customized Suits</h2>
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="IMG_5843.jpeg">
-            <h4>Design #5843</h4>
-            <span class="size-label">Select Size</span>
-            <div class="size-box"><div class="size-option">M</div><div class="size-option">L</div><div class="size-option">XL</div></div>
-            <button class="buy-btn" onclick="location.href='https://wa.me/910000000000?text=I want to order Suit Design 5843'">Place Order</button>
+    <section class="shop-container" id="suits">
+        <div class="header-box">
+            <h2>Custom Suits</h2>
+            <div class="line"></div>
         </div>
-        <div class="product-card">
-            <img src="IMG_5844.jpeg">
-            <h4>Design #5844</h4>
-            <span class="size-label">Select Size</span>
-            <div class="size-box"><div class="size-option">M</div><div class="size-option">L</div></div>
-            <button class="buy-btn" onclick="location.href='https://wa.me/910000000000?text=I want to order Suit Design 5844'">Place Order</button>
+        <div class="product-grid">
+            <div class="card">
+                <img src="IMG_5843.jpeg">
+                <div class="info">
+                    <h4>Custom Suit Print #01</h4>
+                    <div class="size-box">
+                        <div class="size-btn">S</div><div class="size-btn">M</div><div class="size-btn">L</div><div class="size-btn">XL</div>
+                    </div>
+                    <button class="btn-order" onclick="location.href='https://wa.me/918837723272?text=I want to order Custom Suit Design 5843'">Place Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="IMG_5844.jpeg">
+                <div class="info">
+                    <h4>Custom Suit Print #02</h4>
+                    <div class="size-box">
+                        <div class="size-btn">M</div><div class="size-btn">L</div><div class="size-btn">XL</div>
+                    </div>
+                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=I want to order Custom Suit Design 5844'">Place Order</button>
+                </div>
+            </div>
         </div>
-        <div class="product-card">
-            <img src="IMG_5851.jpeg">
-            <h4>Design #5851</h4>
-            <button class="buy-btn" onclick="location.href='https://wa.me/910000000000?text=I want to order Suit Design 5851'">Place Order</button>
-        </div>
-    </div>
-</div>
+    </section>
 
-<div class="section-container" id="lowers">
-    <h2 class="section-title">Comfort Lowers</h2>
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="IMG_5855.jpeg">
-            <h4>Baggy Lower #1</h4>
-            <button class="buy-btn" onclick="location.href='https://wa.me/910000000000?text=Order Lower 5855'">Place Order</button>
+    <section class="shop-container" id="lowers">
+        <div class="header-box">
+            <h2>Comfort Lowers</h2>
+            <div class="line"></div>
         </div>
-        <div class="product-card">
-            <img src="IMG_5858.jpeg">
-            <h4>Classic Jogger</h4>
-            <button class="buy-btn" onclick="location.href='https://wa.me/910000000000?text=Order Lower 5858'">Place Order</button>
+        <div class="product-grid">
+            <div class="card">
+                <img src="IMG_5855.jpeg">
+                <div class="info">
+                    <h4>Premium Baggy Lower</h4>
+                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=I want to order Lower 5855'">Place Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="IMG_5858.jpeg">
+                <div class="info">
+                    <h4>Signature Joggers</h4>
+                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=I want to order Lower 5858'">Place Order</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<div class="map-section" id="map">
-    <h2>Visit Our Shop</h2>
-    <p>Live on Google Maps</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.4!2d75.8!3d30.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDU0JzAwLjAiTiA3NcKwNDgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"></iframe>
-</div>
+    <section class="map-section" id="map">
+        <h2>Our Workshop Location</h2>
+        <p style="margin-bottom: 30px;">Live on Google Maps - Visit us for custom fittings</p>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=PLACEHOLDER"></iframe>
+        </div>
+    </section>
 
-<footer style="text-align:center; padding: 40px; background:#000; color:#fff;">
-    <p>&copy; 2026 MANAV CUSTOM APPAREL. All Rights Reserved.</p>
-</footer>
+    <footer style="background: black; color: white; padding: 80px 20px; text-align: center;">
+        <h1 style="letter-spacing: 5px; font-weight: 900;">MANAV</h1>
+        <p style="opacity: 0.6; font-size: 14px;">Sangrur, Punjab | Made On Demand With Heart ❤️</p>
+        <div style="margin-top: 30px; font-size: 20px; display: flex; justify-content: center; gap: 20px;">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-whatsapp"></i>
+        </div>
+    </footer>
 
 </body>
 </html>
+
