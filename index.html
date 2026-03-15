@@ -3,144 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MANAV | Premium Custom Apparel</title>
+    <title>Customisation by Manav | Premium Apparel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --black: #1a1a1a; --white: #ffffff; --grey: #f9f9f9; --purple: #6a5acd; --whatsapp: #25D366; }
-        body { margin: 0; font-family: 'Inter', sans-serif; color: var(--black); line-height: 1.6; }
+        body { margin: 0; font-family: 'Inter', sans-serif; color: var(--black); line-height: 1.6; overflow-x: hidden; }
 
-        .promo { background: var(--purple); color: white; text-align: center; padding: 12px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+        /* TOP BRANDING */
+        .top-brand { background: var(--white); text-align: center; padding: 10px; font-weight: 800; letter-spacing: 2px; font-size: 12px; border-bottom: 1px solid #eee; text-transform: uppercase; }
 
-        header { padding: 15px 5%; border-bottom: 1px solid #eee; background: white; position: sticky; top: 0; z-index: 1000; }
-        .nav-main { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: auto; }
-        .logo { font-size: 26px; font-weight: 900; letter-spacing: 2px; text-decoration: none; color: black; }
+        /* HEADER & SEARCH (The Original Style) */
+        header { padding: 15px 5%; border-bottom: 1px solid #eee; background: white; position: sticky; top: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; }
+        .nav-left { display: flex; align-items: center; gap: 20px; }
+        .menu-icon { font-size: 22px; cursor: pointer; }
+        .logo { font-size: 24px; font-weight: 900; letter-spacing: 2px; text-decoration: none; color: black; }
         
         .search-container { flex-grow: 1; margin: 0 40px; position: relative; max-width: 600px; }
         .search-container input { width: 100%; padding: 12px 45px 12px 20px; border: none; border-radius: 4px; background: var(--grey); outline: none; }
         .search-container i { position: absolute; right: 15px; top: 14px; color: #555; }
 
-        nav { display: flex; justify-content: center; gap: 40px; padding: 15px; background: white; border-bottom: 1px solid #eee; }
-        nav a { text-decoration: none; color: black; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+        /* SIDEBAR MENU */
+        .sidebar { position: fixed; top: 0; left: -280px; width: 250px; height: 100%; background: white; box-shadow: 5px 0 15px rgba(0,0,0,0.1); z-index: 2001; transition: 0.3s; padding: 25px; }
+        .sidebar.active { left: 0; }
+        .sidebar h2 { font-size: 18px; margin-bottom: 30px; border-bottom: 2px solid black; display: inline-block; }
+        .sidebar a { display: block; padding: 15px 0; text-decoration: none; color: black; font-weight: 700; border-bottom: 1px solid #eee; text-transform: uppercase; font-size: 13px; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 2000; }
 
-        .shop-container { max-width: 1400px; margin: 50px auto; padding: 0 20px; }
+        /* PRODUCT SECTIONS */
+        .shop-container { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
         .header-box { display: flex; align-items: center; margin-bottom: 40px; }
-        .header-box h2 { font-size: 24px; text-transform: uppercase; margin: 0; }
+        .header-box h2 { font-size: 24px; text-transform: uppercase; margin: 0; font-weight: 800; }
         .header-box .line { flex-grow: 1; height: 2px; background: #eee; margin-left: 20px; }
         
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: white; border: 1px solid #f0f0f0; padding: 10px; transition: 0.3s ease; }
+        .card { background: white; border: 1px solid #f0f0f0; padding: 10px; transition: 0.3s ease; position: relative; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .card img { width: 100%; aspect-ratio: 1/1.2; object-fit: cover; border-radius: 4px; }
+        .card img { width: 100%; aspect-ratio: 1/1.2; object-fit: cover; }
         
         .info { padding: 15px 5px; }
-        .info h4 { margin: 0 0 10px; font-size: 16px; font-weight: 600; }
+        .info h4 { margin: 0 0 10px; font-size: 16px; font-weight: 600; text-transform: uppercase; }
         .label { font-size: 11px; color: #888; text-transform: uppercase; margin-bottom: 8px; display: block; }
-        .bubble-box { display: flex; gap: 8px; margin-bottom: 15px; }
-        .bubble { border: 1px solid #ddd; padding: 5px 12px; font-size: 11px; border-radius: 20px; cursor: pointer; }
-        .bubble:hover { background: #000; color: #fff; }
 
+        /* ORDER BUTTON */
         .btn-order { background: black; color: white; border: none; width: 100%; padding: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; }
 
-        /* CONTACT SECTION */
-        .contact-box { background: var(--grey); padding: 60px 20px; text-align: center; border-radius: 8px; margin: 40px 20px; }
-        .btn-custom { background: var(--whatsapp); color: white; border: none; padding: 18px 30px; font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 50px; text-decoration: none; display: inline-block; font-size: 14px; }
+        /* ORDER FORM MODAL */
+        .modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 420px; background: white; padding: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); z-index: 3000; border-radius: 8px; display: none; }
+        .modal h3 { margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .modal input, .modal textarea { width: 100%; padding: 14px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
+        .btn-submit { background: black; color: white; border: none; width: 100%; padding: 16px; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
 
-        /* FLOATING WHATSAPP */
-        .float-contact { position: fixed; bottom: 20px; right: 20px; background: var(--whatsapp); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 2000; text-decoration: none; }
+        /* CHAT BUBBLE */
+        .float-chat { position: fixed; bottom: 25px; right: 25px; background: var(--whatsapp); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1000; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
 
-        .coming-soon-box { text-align: center; padding: 40px; border: 2px dashed #eee; color: #888; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-top: 20px; }
-
-        .map-section { background: var(--grey); padding: 80px 20px; text-align: center; }
-        .map-container iframe { width: 100%; max-width: 1100px; height: 450px; border: 0; border-radius: 4px; }
+        .coming-soon-box { text-align: center; padding: 50px; border: 2px dashed #eee; color: #aaa; text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; }
 
         @media (max-width: 768px) {
-            .nav-main { flex-direction: column; gap: 20px; }
-            .search-container { width: 100%; margin: 0; }
+            .search-container { margin: 0 15px; }
+            .logo { font-size: 20px; }
             .product-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="promo">FREE SHIPPING IN SANGRUR | NEW USER & ENJOY 10% OFF</div>
+    <div class="top-brand">Customisation by Manav</div>
 
-    <a href="https://wa.me/918837723273?text=Hi Manav, I have a custom request!" class="float-contact">
+    <header>
+        <div class="nav-left">
+            <div class="menu-icon" onclick="toggleMenu()"><i class="fa fa-bars"></i></div>
+            <a href="#" class="logo">MANAV</a>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" placeholder="Search for designs...">
+            <i class="fa fa-search"></i>
+        </div>
+
+        <div style="font-size: 20px;"><i class="fa fa-shopping-bag"></i></div>
+    </header>
+
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    <div class="sidebar" id="sidebar">
+        <div style="text-align: right; margin-bottom: 10px; cursor: pointer;" onclick="toggleMenu()"><i class="fa fa-times"></i></div>
+        <h2>MENU</h2>
+        <a href="#suits" onclick="toggleMenu()">Suit Prints</a>
+        <a href="#tshirts" onclick="toggleMenu()">T-Shirts</a>
+        <a href="#lowers" onclick="toggleMenu()">Lowers</a>
+        <a href="https://wa.me/918837723273" target="_blank">Chat With Us</a>
+    </div>
+
+    <a href="https://wa.me/918837723273?text=I have a question about a design." class="float-chat">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <header>
-        <div class="nav-main">
-            <a href="#" class="logo">MANAV</a>
-            <div class="search-container">
-                <input type="text" placeholder="Search designs...">
-                <i class="fa fa-search"></i>
-            </div>
-            <div style="font-size: 20px;"><i class="fa fa-shopping-bag"></i></div>
-        </div>
-    </header>
-
-    <nav>
-        <a href="#suits">Suit Prints</a>
-        <a href="#tshirts">T-Shirts</a>
-        <a href="#lowers">Lowers</a>
-        <a href="#map">Our Store</a>
-    </nav>
+    <div class="modal" id="orderModal">
+        <h3>Order Details</h3>
+        <p id="productName" style="font-weight: bold; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px;"></p>
+        <input type="text" id="custName" placeholder="Enter Your Name">
+        <input type="tel" id="custPhone" placeholder="Mobile Number">
+        <textarea id="custLoc" placeholder="Delivery Address (Town/City)" rows="3"></textarea>
+        <button class="btn-submit" onclick="sendOrder()">Confirm Order</button>
+        <p onclick="closeModal()" style="text-align: center; color: #888; cursor: pointer; margin-top: 15px; font-size: 12px;">Close</p>
+    </div>
 
     <section class="shop-container" id="suits">
-        <div class="header-box"><h2>Custom Suit Prints</h2><div class="line"></div></div>
+        <div class="header-box"><h2>Suit Prints</h2><div class="line"></div></div>
         <div class="product-grid">
-            <div class="card"><img src="IMG_5843.jpeg"><div class="info"><h4>Suit Print</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5843'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5844.jpeg"><div class="info"><h4>Suit Print</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5844'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5851.jpeg"><div class="info"><h4>Suit Print</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5851'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5852.jpeg"><div class="info"><h4>Suit Print</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5852'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5853.jpeg"><div class="info"><h4>Suit Print</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5853'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5855.jpeg"><div class="info"><h4>Suit Print</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5855'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5856.jpeg"><div class="info"><h4>Suit Print</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5856'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5857.jpeg"><div class="info"><h4>Suit Print</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5857'">Place Order</button></div></div>
-            <div class="card"><img src="IMG_5858.jpeg"><div class="info"><h4>Suit Print</h4><button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order Suit Print 5858'">Place Order</button></div></div>
+            <script>
+                const suitImages = ['5843', '5844', '5851', '5852', '5853', '5855', '5856', '5857', '5858'];
+                suitImages.forEach(img => {
+                    document.write(`
+                        <div class="card">
+                            <img src="IMG_${img}.jpeg">
+                            <div class="info">
+                                <h4>Suit Print</h4>
+                                <button class="btn-order" onclick="openModal('Suit Print #${img}')">Place Order</button>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
         </div>
     </section>
 
     <section class="shop-container" id="tshirts">
-        <div class="header-box"><h2>T-Shirts Collection</h2><div class="line"></div></div>
+        <div class="header-box"><h2>T-Shirts</h2><div class="line"></div></div>
         <div class="product-grid">
             <div class="card">
                 <img src="IMG_5871.png">
                 <div class="info">
                     <h4>T-Shirt</h4>
-                    <span class="label">Select Size</span>
-                    <div class="bubble-box"><div class="bubble">M</div><div class="bubble">L</div><div class="bubble">XL</div></div>
-                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order T-Shirt 5871'">Place Order</button>
+                    <button class="btn-order" onclick="openModal('T-Shirt #5871')">Place Order</button>
                 </div>
             </div>
             <div class="card">
                 <img src="IMG_5872.png">
                 <div class="info">
                     <h4>T-Shirt</h4>
-                    <span class="label">Select Size</span>
-                    <div class="bubble-box"><div class="bubble">M</div><div class="bubble">L</div><div class="bubble">XL</div></div>
-                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order T-Shirt 5872'">Place Order</button>
+                    <button class="btn-order" onclick="openModal('T-Shirt #5872')">Place Order</button>
                 </div>
             </div>
             <div class="card">
                 <img src="IMG_5873.jpeg">
                 <div class="info">
                     <h4>T-Shirt</h4>
-                    <span class="label">Select Size</span>
-                    <div class="bubble-box"><div class="bubble">M</div><div class="bubble">L</div><div class="bubble">XL</div></div>
-                    <button class="btn-order" onclick="location.href='https://wa.me/918837723273?text=Order T-Shirt 5873'">Place Order</button>
+                    <button class="btn-order" onclick="openModal('T-Shirt #5873')">Place Order</button>
                 </div>
             </div>
         </div>
         <div class="coming-soon-box">Their more collection coming soon</div>
-    </section>
-
-    <section class="contact-box">
-        <h2>Want a Custom Design?</h2>
-        <p>Send us your ideas and we will create a custom print just for you.</p>
-        <a href="https://wa.me/918837723273?text=I want a custom design!" class="btn-custom">
-            <i class="fab fa-whatsapp"></i> Chat for Custom Request
-        </a>
     </section>
 
     <section class="shop-container" id="lowers">
@@ -148,17 +160,48 @@
         <div class="coming-soon-box">New lower collection coming soon</div>
     </section>
 
-    <section class="map-section" id="map">
-        <h2>Visit Our Sangrur Store</h2>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.8347101737!2d75.8340!3d30.9010!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDU0JzAzLjYiTiA3NcKwNTAnMDIuNCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin0"></iframe>
-        </div>
-    </section>
-
     <footer style="background: black; color: white; padding: 60px 20px; text-align: center;">
-        <h1 style="letter-spacing: 5px; font-weight: 900;">MANAV</h1>
-        <p>Sangrur, Punjab | Made With Heart ❤️</p>
+        <h1 style="letter-spacing: 5px; font-weight: 900; margin: 0;">MANAV</h1>
+        <p style="opacity: 0.6; font-size: 12px; margin-top: 10px;">Sangrur, Punjab | Custom Made For You</p>
     </footer>
+
+    <script>
+        let selectedProduct = "";
+
+        function toggleMenu() {
+            const side = document.getElementById('sidebar');
+            const over = document.getElementById('overlay');
+            side.classList.toggle('active');
+            over.style.display = side.classList.contains('active') ? 'block' : 'none';
+        }
+
+        function openModal(prod) {
+            selectedProduct = prod;
+            document.getElementById('productName').innerText = prod;
+            document.getElementById('orderModal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function sendOrder() {
+            const n = document.getElementById('custName').value;
+            const p = document.getElementById('custPhone').value;
+            const l = document.getElementById('custLoc').value;
+
+            if(!n || !p || !l) {
+                alert("Please fill in all details to place order!");
+                return;
+            }
+
+            const msg = `*ORDER FROM WEBSITE*%0A--------------------------%0A*Product:* ${selectedProduct}%0A*Name:* ${n}%0A*Phone:* ${p}%0A*Location:* ${l}`;
+            window.open(`https://wa.me/918837723273?text=${msg}`, '_blank');
+            closeModal();
+        }
+    </script>
 
 </body>
 </html>
